@@ -359,8 +359,8 @@ function UUP-Dump-GetISO {
         Move-Item -Force $sourceIsoPath $destinationIsoPath
 
         Write-Host 'All Done. Cleaning Up...'
-        Remove-Item "$buildDirectory.zip" -Force
-        Remove-Item "$buildDirectory" -Force
+        Remove-Item "$buildDirectory.zip" -Force -Recurse
+        Remove-Item "$buildDirectory" -Force -Recurse
 
     }
 
@@ -368,4 +368,4 @@ function UUP-Dump-GetISO {
 }
 
 #example usage:
-UUP-Dump-GetISO -windowsTargetName 'windows11-25H2' -destinationDirectory 'E:\test'
+UUP-Dump-GetISO -windowsTargetName 'windows11-25H2-LTSC' -destinationDirectory 'E:\test'
