@@ -2,6 +2,7 @@
 
 - enable netfx3.5
 - added 23h2, 24h2, and 25h2
+    - enterprise and ltsc for all the above builds 
 
 ## About
 
