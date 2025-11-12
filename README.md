@@ -1,4 +1,9 @@
-# About
+# Modified script for zISO Tweaker iso downloads
+
+- enable netfx3.5
+- added 23h2, 24h2, and 25h2
+
+## About
 
 This creates an iso file with the latest Windows available from the [Unified Update Platform (UUP)](https://docs.microsoft.com/en-us/windows/deployment/update/windows-update-overview).
 
