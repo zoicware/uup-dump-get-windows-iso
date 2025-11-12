@@ -16,22 +16,39 @@ function UUP-Dump-GetISO {
 
     $TARGETS = @{
         # see https://en.wikipedia.org/wiki/Windows_11_version_history
-        'windows11-23H2' = @{
+        'windows11-23H2-E'    = @{
             search         = 'windows 11 22631 amd64' 
             edition        = 'Professional'
             virtualEdition = 'Enterprise'
         }
   
-        'windows11-24H2' = @{
+        'windows11-24H2-E'    = @{
             search         = 'windows 11 26100 amd64' 
             edition        = 'Professional'
             virtualEdition = 'Enterprise'
         }
 
-        'windows11-25H2' = @{
+        'windows11-25H2-E'    = @{
             search         = 'windows 11 26200 amd64' 
             edition        = 'Professional'
             virtualEdition = 'Enterprise'
+        }
+        'windows11-23H2-LTSC' = @{
+            search         = 'windows 11 22631 amd64' 
+            edition        = 'Professional'
+            virtualEdition = 'IoTEnterpriseS'
+        }
+  
+        'windows11-24H2-LTSC' = @{
+            search         = 'windows 11 26100 amd64' 
+            edition        = 'Professional'
+            virtualEdition = 'IoTEnterpriseS'
+        }
+
+        'windows11-25H2-LTSC' = @{
+            search         = 'windows 11 26200 amd64' 
+            edition        = 'Professional'
+            virtualEdition = 'IoTEnterpriseS'
         }
    
     }
