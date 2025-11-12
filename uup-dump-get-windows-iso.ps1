@@ -282,7 +282,6 @@ function UUP-Dump-GetISO {
         $convertConfig = (Get-Content $buildDirectory/ConvertConfig.ini) `
             -replace '^(AutoExit\s*)=.*', '$1=1' `
             -replace '^(ResetBase\s*)=.*', '$1=1' `
-            -replace '^(SkipWinRE\s*)=.*', '$1=1' `
             -replace '^(NetFx3\s*)=.*', '$1=1'
         if ($iso.virtualEdition) {
             $convertConfig = $convertConfig `
@@ -310,7 +309,7 @@ function UUP-Dump-GetISO {
         Pop-Location
 
         $sourceIsoPath = Resolve-Path $buildDirectory/*.iso
-
+        <#
         Write-Host "Getting the $sourceIsoPath checksum"
         $isoChecksum = (Get-FileHash -Algorithm SHA256 $sourceIsoPath).Hash.ToLowerInvariant()
         Set-Content -Encoding ascii -NoNewline `
@@ -337,15 +336,19 @@ function UUP-Dump-GetISO {
                 }
             } | ConvertTo-Json -Depth 99) -replace '\\u0026', '&'
         )
+        #>
 
         Write-Host "Moving the created $sourceIsoPath to $destinationIsoPath"
         Move-Item -Force $sourceIsoPath $destinationIsoPath
 
-        Write-Host 'All Done.'
+        Write-Host 'All Done. Cleaning Up...'
+        Remove-Item "$buildDirectory.zip" -Force
+        Remove-Item "$buildDirectory" -Force
+
     }
 
     Get-WindowsIso $windowsTargetName $destinationDirectory
 }
 
 #example usage:
-#UUP-Dump-GetISO -windowsTargetName 'windows11-25H2' -destinationDirectory 'C:\'
+UUP-Dump-GetISO -windowsTargetName 'windows11-25H2' -destinationDirectory 'E:\test'
